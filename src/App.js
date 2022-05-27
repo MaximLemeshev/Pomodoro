@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import SettingsContext from "./context/SettingsContext";
+import Timer from "./component/Timer";
+import Settings from "./component/Settings";
 
 function App() {
+  const [showSettings, setShowSettings] = useState(true);
+  const [workMinutes, setWorkMinutes] = useState(45);
+  const [breakMinutes, setBreakMinutes] = useState(15);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <SettingsContext.Provider
+        value={{
+          workMinutes,
+          breakMinutes,
+          setWorkMinutes,
+          setBreakMinutes,
+          showSettings,
+          setShowSettings,
+        }}
+      >
+        {showSettings ? <Timer /> : <Settings />}
+      </SettingsContext.Provider>
+    </main>
   );
 }
 

@@ -1,0 +1,18 @@
+.slider {
+    border: 2px solid var(--red);
+    height: 40px;
+    border-radius: 20px;
+  }
+  .thumb {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--red);
+    cursor: pointer;
+  }
+  .slider.green {
+    border: 2px solid var(--green);
+  }
+  .slider.green .thumb {
+    background-color: var(--green);
+  }
